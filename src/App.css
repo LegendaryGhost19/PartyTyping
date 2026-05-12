@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap');
+
+:root {
+  --bg-color: #0a0a0a; 
+  --text-muted: #646669;      
+  --text-active: #d1d0c5;
+  --correct-color: #2eeb9a;   
+  --error-color: #ca4754;     
+  --btn-text: #0a0a0a;
+  /* Default Dark Theme Highlight (Subtle Yellow) */
+  --active-word-bg: rgba(226, 183, 20, 0.1); 
+}
+
+[data-theme='light'] {
+  --bg-color: #f4f4f5; 
+  --text-muted: #a1a1aa;      
+  --text-active: #18181b;
+  --correct-color: #10b981; 
+  --error-color: #ef4444;     
+  --btn-text: #ffffff;
+  /* NEW: Light Theme Highlight (Subtle Grey) */
+  --active-word-bg: rgba(0, 0, 0, 0.08); 
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-active);
+  font-family: 'Roboto Mono', monospace;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s ease, color 0.3s ease; 
+}
+
+.typing-container {
+  width: 100%;
+  max-width: 1000px;
+  padding: 2rem;
+  cursor: text; 
+  position: relative; 
+}
+
+.theme-toggle {
+  position: absolute;
+  top: -40px; 
+  right: 2rem;
+}
+
+.theme-toggle button {
+  background: transparent;
+  color: var(--text-active);
+  border: 1px solid var(--text-muted);
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: bold;
+  transition: all 0.2s;
+}
+
+.theme-toggle button:hover {
+  border-color: var(--text-active);
+  transform: scale(1.05);
+}
+
+.app-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.app-header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: linear-gradient(45deg, #e2b714, #ff5e62);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 2px;
+  margin: 0;
+}
+
+.stats {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  font-size: 1.5rem;
+  color: #e2b714;
+}
+
+.word-display {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  font-size: 1.8rem;
+  line-height: 1.5;
+  height: 130px; 
+  overflow-y: hidden; 
+  position: relative; 
+}
+
+.word {
+  margin-right: 12px;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.word.active {
+  /* NEW: Uses the dynamic variable instead of a hardcoded color */
+  background-color: var(--active-word-bg); 
+  border-radius: 4px;
+  padding: 0 2px;
+  margin-left: -2px;
+}
+
+.char {
+  color: var(--text-muted); 
+  transition: color 0.1s ease;
+}
+
+.char.correct {
+  color: var(--correct-color); 
+}
+
+.char.incorrect {
+  color: var(--error-color); 
+  background-color: rgba(202, 71, 84, 0.2); 
+}
+
+.char.extra {
+  opacity: 0.8;
+}
+
+.results {
+  margin-top: 3rem;
+  text-align: center;
+  animation: fadeIn 0.5s ease-in;
+}
+
+.results button.restart-btn {
+  background-color: #e2b714;
+  color: var(--btn-text); 
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-top: 15px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  font-family: inherit;
+}
+
+.results button.restart-btn:hover {
+  background-color: #f0c325;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
