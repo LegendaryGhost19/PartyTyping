@@ -1,6 +1,6 @@
 # PartyTyping 🎉
 
-![PartyTyping Demo](assets/screenshot.png)
+![PartyTyping Demo](https://placehold.co/1000x500/0a0a0a/e2b714?text=PartyTyping+Demo)
 
 **PartyTyping** is a high-performance, minimalist typing speed test application inspired by Monkeytype. Built with React and Vite, it focuses on providing a buttery-smooth, distraction-free environment to test your typing speed (WPM) and accuracy.
 
